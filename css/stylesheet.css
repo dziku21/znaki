@@ -1,0 +1,44 @@
+
+
+label {
+	display: block;
+	margin : 5px;
+	font-size: 17px;
+	
+}
+
+p {
+	margin-left :5px;
+	webkit-margin-after: 0px;
+}
+
+textarea {
+ margin-top:10px
+}
+	
+body {
+    background-color: rgba(184, 43, 0, 1);
+}
+
+textarea {
+	width:500px;
+	height :100px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-top:20px
+}
+
+#textlength {
+	width:100px;
+	margin-left: 20px;
+}
+
+#spacja {
+	width:100px;
+	margin-left: 110px;
+}
+
+.inline {
+	display: inline;
+}
+
