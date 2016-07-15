@@ -1,4 +1,5 @@
-var signs = "qwertyuioplkjhgfdsamnbvcxzZXCVBNMLKJHGFDSAPOIUYTREWQ"; 
+var letter = "qwertyuioplkjhgfdsamnbvcxzZXCVBNMLKJHGFDSAPOIUYTREWQ"; 
+var space = " ";
 var polskie = "ęóąśłżźćń";
 var cyfry = "0123456789";
 var znaki = "!@#$%^&*()";
@@ -6,8 +7,8 @@ var znaki = "!@#$%^&*()";
 
 
 
-var tabela = [signs];   
-var counterTabela = 0;
+var mainTable = [];   
+var counterTable = 0;
 
 
 
@@ -21,7 +22,6 @@ function getSignNumber(word) {
 	console.log(signsNumber);
 	document.getElementById("ilosc").textContent = signsNumber;
 	console.log(word);
-
 }
 //geeneruje znak z tablicy tabela której elementami są dane powiązane z checboxami.
 function generateSign(number1) {
@@ -32,14 +32,18 @@ function generateSign(number1) {
 }
 
 function generateText() {
-	//Sprawdza czy wyświetlić alert 
-	if (displayAlert()) {
-		checked = 0;
-		tabela = [signs];
-		return alert("Długość tekstu przy zaznaczonych opcjach dodatkowych musi być dłuższa");	
+	//Sprawdza czy wyświetlić alert, a jak tak to jaki
+	var alertNumber = displayAlert();
+
+	if ( alertNumber == 1) {
+		 alert("Długość tekstu przy zaznaczonych opcjach musi być dłuższa");	
+    }  else if ( alertNumber == 2) {
+    	alert("Zaznacz przynajmniej jedną opcję");
+    } else {
+    	alertNumber =4;
     }
 
-    console.log(tabela);
+    console.log(mainTable);
 	console.log(checked);
 	console.log("number "+ number);
 	
@@ -70,27 +74,38 @@ function generateText() {
 }
 
 function displayAlert() {
-
+	
 	number = document.getElementById("textlength").value;
-	spacja = document.getElementById("spacja").value;
+
+	if (document.getElementById("letter").checked ){
+		checked +=1;
+		mainTable.push(letter);
+	}
+
+	if (document.getElementById("space").checked ){
+		checked +=1;
+		mainTable.push(space);
+	}
 
 
 	if (document.getElementById("polskie").checked ){
 		checked +=1;
-		tabela.push(polskie);
+		mainTable.push(polskie);
 	}
 	if (document.getElementById("liczby").checked ){
 		checked +=1;
-		tabela.push(cyfry);
+		mainTable.push(cyfry);
 	}
 	if (document.getElementById("znaki").checked ){
 		checked +=1;
-		tabela.push(znaki);
+		mainTable.push(znaki);
 	} 
 	
-	if (checked>0 && checked >= number) {
-		return true;
+	if (checked>0 && checked > number) {
+		return 1;
+	} else if(checked==0){
+		return 2;
 	} else {
-		return false;
+		return 3;
 	}
 }

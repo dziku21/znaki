@@ -13,10 +13,13 @@
 		
 		<form id="form1">
 			<label id="label1"> Wpisz długość tekstu który chcesz wygenerować <input type="text" min="3"  maxlength="5" id="textlength" name="liczba" value=""> </label>
-			<label>Wpisz co ile znaków ma być spacja <input type="text" id="spacja" maxlength="3" name="spacja" value=""  > </label>
+			
 			
 			<p>Uwzględnij: </p>
 			<p>
+
+				<input  id="letter" type="checkbox" name="sign" value="litery"><label class="inline" for="polskie">Duże i małe litery</label> <br>
+				<input  id="space" type="checkbox" name="sign" value="spacje"><label class="inline" for="spacje">spacje</label> <br>
 				<input  id="polskie" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polskie">polskie znaki</label> <br>
 				<input id="liczby" type="checkbox" name="sign" value="liczby" ><label class="inline" for="liczby">cyfry</label> <br>
 				<input id="znaki" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="znaki">znaki specjalne:  !@#$%^&*()</label> 
