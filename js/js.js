@@ -33,19 +33,9 @@ function generateSign(number1) {
 
 function generateText() {
 	//Sprawdza czy wyświetlić alert, a jak tak to jaki
-	var alertNumber = displayAlert();
-
-	if ( alertNumber == 1) {
-		 alert("Długość tekstu przy zaznaczonych opcjach musi być dłuższa");	
-    }  else if ( alertNumber == 2) {
-    	alert("Zaznacz przynajmniej jedną opcję");
-    } else {
-    	alertNumber =4;
-    }
+	displayAlert();
 
     console.log(mainTable);
-	console.log(checked);
-	console.log("number "+ number);
 	
 	var sentence ="";
 	var counter = 0;
@@ -70,7 +60,8 @@ function generateText() {
 	document.getElementById("generatedText").value = sentence;
 	
 	checked = 0;
-	tabela  = [signs];
+	mainTable  = [];
+
 }
 
 function displayAlert() {
@@ -87,7 +78,6 @@ function displayAlert() {
 		mainTable.push(space);
 	}
 
-
 	if (document.getElementById("polskie").checked ){
 		checked +=1;
 		mainTable.push(polskie);
@@ -102,10 +92,8 @@ function displayAlert() {
 	} 
 	
 	if (checked>0 && checked > number) {
-		return 1;
+		return alert("Długość tekstu przy zaznaczonych opcjach musi być dłuższa");
 	} else if(checked==0){
-		return 2;
-	} else {
-		return 3;
-	}
+		return alert("Zaznacz przynajmniej jedną opcję");;
+	} 
 }
