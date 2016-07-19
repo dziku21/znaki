@@ -17,7 +17,7 @@ function generateText() {
 	displayAlert();
 
     console.log(mainTable);
-    var answer = "" 
+    var answer = "";
 
     if (mainTable.length == numberOfSigns) {
     	var copyMainTable = [];
@@ -48,15 +48,43 @@ function generateText() {
     				answer += generateSign(mainTable[index]);
     				NumbersForTableWithSigns[index] -=1;
     				numberOfSigns-- ;
-    				console.log(numberOfSigns);
     			} 
     		}
+
+    		answer= answer.split(""); 
+    		console.log("tablica przed mieszaniem "+ answer);
+    		
+    		answer2 = shuffleArray(answer);
+
+    		
+    		console.log("tablica po mieszaniu " + answer); 
+    		answer = generateString(answer2); 
 	}
-	console.log(answer);
+
 	document.getElementById("generatedText").value = answer;
 	checked = 0;
 	mainTable  = [];
 
+}
+//var list = [1,2,3];
+//console.log(list.sort(function() { Math.random() - 0.5 })); // [2,1,3]
+function generateString(array) {
+	answer = "";
+	for (i=0; i<array.length; i++) {
+		answer += array[i];
+	}
+	return answer;
+}
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    console.log(array);
+    return array;
 }
 
 function generateNumbersForTableWithSigns(table, totalnumbers) {
@@ -80,8 +108,6 @@ function generateNumbersForTableWithSigns(table, totalnumbers) {
 	for (i=0; i<tableWithNumbersOfSign.length; i++) {
 			sum += tableWithNumbersOfSign[i];
 	}
-
-	console.log("suma po losowaniu " + sum) ; 
 
 	while (sum != totalnumbers ){
 		for(i=0; i<tableWithNumbersOfSign.length; i++){
