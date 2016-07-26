@@ -5,28 +5,25 @@ var digits = "0123456789";
 var special = "!@#$%^&*()";
 
 var tableWithSigns = [ letter, space, polish, digits, special ] ; 
-var procentTable =   [0.6, 0.1, 0.1, 0.1, 0.1];
+var procentTable =   [0.6, 0.1, 0.1, 0.1, 0.1]; // dla każdego checboxa przypisana jest procentowa wartość znaków w ciągu. 
 
 var mainTable = [];  // tablica z indeksami zaznaczonych checboxów.  
 var counterTable = 0;
 var checked = 0; 
 var numberOfSigns;
 
-function generateText() {
-	//Sprawdza czy wyświetlić alert, a jak tak to jaki
+function generateText() {	
 	displayAlert();
  	if (checked == 0) {
  		return null;
  	}
-    console.log(mainTable);
     var answer = "";
-
+	//przypadek gdy liczba zaznaczonych checboców == liczba znaków do wygenerowania
     if (mainTable.length == numberOfSigns) {
     	var copyMainTable = [];
     	for (i=0; i<mainTable.length; i++) {
     		copyMainTable.push(i);
     	}
-
     	var IndexTableWithSign;
     	for (i=0; i<mainTable.length; i++){
     		randomIndexCopyTable = Math.floor(Math.random() * copyMainTable.length);
@@ -39,7 +36,7 @@ function generateText() {
     	} 
 
     } else if (mainTable.length < numberOfSigns) {
-    		// tutaj główna funkcja programu . 
+    		// tutaj główna funkcja programu . ( przypdadek najcześciej wywoływany)
     		var NumbersForTableWithSigns = generateNumbersForTableWithSigns(mainTable , numberOfSigns); 
 
     		while (numberOfSigns > 0) {
@@ -53,13 +50,8 @@ function generateText() {
     			} 
     		}
 
-    		answer= answer.split(""); 
-    		console.log("tablica przed mieszaniem "+ answer);
-    		
-    		answer2 = shuffleArray(answer);
-
-    		
-    		console.log("tablica po mieszaniu " + answer); 
+    		answer= answer.split(""); //tworzy z utworzonego ciągu tablice
+    		answer2 = shuffleArray(answer);// miszanie tablicy
     		answer = generateString(answer2); 
 	}
 
@@ -68,8 +60,7 @@ function generateText() {
 	mainTable  = [];
 
 }
-//var list = [1,2,3];
-//console.log(list.sort(function() { Math.random() - 0.5 })); // [2,1,3]
+
 function generateString(array) {
 	answer = "";
 	for (i=0; i<array.length; i++) {
@@ -90,7 +81,7 @@ function shuffleArray(array) {
 }
 
 function generateNumbersForTableWithSigns(table, totalnumbers) {
-
+// generuje tablice określająca ile znaków dla każdego checboxa 
 	var tableWithNumbersOfSign = [];
 	for (i=0; i<table.length; i++) {
 		number = procentTable[table[i]] * totalnumbers;
@@ -142,7 +133,8 @@ function generateSign(index) {
 }
 
 function displayAlert() {
-	
+	//Sprawdza czy wyświetlić alert, a jak tak to jaki,
+	// Sprawdza, które checboxy zostały zazanoczne i które dodać do głównej tablicy.
 	numberOfSigns = document.getElementById("textlength_js").value;
 
 	if (document.getElementById("letter_js").checked ){
@@ -166,7 +158,7 @@ function displayAlert() {
 		mainTable.push(4);
 	} 
 	if (checked>0 && checked > numberOfSigns) {
-		return alert("Długość tekstu przy zaznaczonych opcjach musi być dłuższa");
+		return alert("Ilość znaków powinna być większa");
 	} else if(checked==0){
 		return alert("Zaznacz przynajmniej jedną opcję");
 	} 
