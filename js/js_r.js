@@ -3,10 +3,8 @@ var space = " ";
 var polish = "ęóąśłżźćń";
 var digits = "0123456789";
 var special = "!@#$%^&*()";
-
 var tableWithSigns = [ letter, space, polish, digits, special ] ; 
 var procentTable =   [0.6, 0.1, 0.1, 0.1, 0.1]; // dla każdego checboxa przypisana jest procentowa wartość znaków w ciągu. 
-
 var mainTable = [];  // tablica z indeksami zaznaczonych checboxów.  
 var counterTable = 0;
 var checked = 0; 
@@ -18,7 +16,7 @@ function generateText() {
  		return null;
  	}
     var answer = "";
-	//przypadek gdy liczba zaznaczonych checboców == liczba znaków do wygenerowania
+	//przypadek gdy liczba zaznaczonych checkboxów == liczba znaków do wygenerowania
     if (mainTable.length == numberOfSigns) {
     	var copyMainTable = [];
     	for (i=0; i<mainTable.length; i++) {
@@ -27,18 +25,14 @@ function generateText() {
     	var IndexTableWithSign;
     	for (i=0; i<mainTable.length; i++){
     		randomIndexCopyTable = Math.floor(Math.random() * copyMainTable.length);
-    		randomIndex1 = copyMainTable[randomIndexCopyTable];
-    		
+    		randomIndex1 = copyMainTable[randomIndexCopyTable];    		
     		indexTableWithSign = mainTable[randomIndex1];
     		copyMainTable.splice(randomIndexCopyTable, 1);
-    		
     		answer += generateSign(indexTableWithSign); 
     	} 
-
     } else if (mainTable.length < numberOfSigns) {
     		// tutaj główna funkcja programu . ( przypdadek najcześciej wywoływany)
     		var NumbersForTableWithSigns = generateNumbersForTableWithSigns(mainTable , numberOfSigns); 
-
     		while (numberOfSigns > 0) {
     			index = Math.floor(Math.random() * NumbersForTableWithSigns.length);
     			console.log(NumbersForTableWithSigns);
@@ -49,16 +43,13 @@ function generateText() {
     				numberOfSigns-- ;
     			} 
     		}
-
     		answer= answer.split(""); //tworzy z utworzonego ciągu tablice
     		answer2 = shuffleArray(answer);// miszanie tablicy
     		answer = generateString(answer2); 
 	}
-
 	document.getElementById("generatedText_js").value = answer;
 	checked = 0;
 	mainTable  = [];
-
 }
 
 function generateString(array) {
@@ -95,13 +86,10 @@ function generateNumbersForTableWithSigns(table, totalnumbers) {
 		tableWithNumbersOfSign.push(number); 
 		console.log("tablica ze znakami dla poszczególnych grup bez obróbki  " + tableWithNumbersOfSign);
 	}
-
 	var sum = 0; 
-
 	for (i=0; i<tableWithNumbersOfSign.length; i++) {
 			sum += tableWithNumbersOfSign[i];
 	}
-
 	while (sum != totalnumbers ){
 		for(i=0; i<tableWithNumbersOfSign.length; i++){
 			if ( sum == totalnumbers) {
@@ -120,10 +108,8 @@ function generateNumbersForTableWithSigns(table, totalnumbers) {
 		}
 		console.log("suma po dodatkowym dodawaniu "+ sum);
 		console.log("tablica ze znakami dla poszczególnych grup po obróbce  " + tableWithNumbersOfSign);
-
 		return tableWithNumbersOfSign;
 }
-
 
 function generateSign(index) {
 	var signs = tableWithSigns[index];
@@ -145,15 +131,15 @@ function displayAlert() {
 		checked +=1;
 		mainTable.push(1);
 	}
-	if (document.getElementById("polskie_js").checked ){
+	if (document.getElementById("polish_js").checked ){
 		checked +=1;
 		mainTable.push(2);
 	}
-	if (document.getElementById("liczby_js").checked ){
+	if (document.getElementById("numbers_js").checked ){
 		checked +=1;
 		mainTable.push(3);
 	}
-	if (document.getElementById("znaki_js").checked ){
+	if (document.getElementById("signs_js").checked ){
 		checked +=1;
 		mainTable.push(4);
 	} 
@@ -170,5 +156,4 @@ function getSignNumber(word) {
 	console.log(signsNumber);
 	document.getElementById("ilosc_js").textContent = signsNumber;
 	console.log(word);
-
 }
