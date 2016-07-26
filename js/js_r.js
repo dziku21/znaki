@@ -15,7 +15,9 @@ var numberOfSigns;
 function generateText() {
 	//Sprawdza czy wyświetlić alert, a jak tak to jaki
 	displayAlert();
-
+ 	if (checked == 0) {
+ 		return null;
+ 	}
     console.log(mainTable);
     var answer = "";
 
@@ -61,7 +63,7 @@ function generateText() {
     		answer = generateString(answer2); 
 	}
 
-	document.getElementById("generatedText").value = answer;
+	document.getElementById("generatedText_js").value = answer;
 	checked = 0;
 	mainTable  = [];
 
@@ -141,32 +143,32 @@ function generateSign(index) {
 
 function displayAlert() {
 	
-	numberOfSigns = document.getElementById("textlength").value;
+	numberOfSigns = document.getElementById("textlength_js").value;
 
-	if (document.getElementById("letter").checked ){
+	if (document.getElementById("letter_js").checked ){
 		checked +=1;
 		mainTable.push(0);
 	}
-	if (document.getElementById("space").checked ){
+	if (document.getElementById("space_js").checked ){
 		checked +=1;
 		mainTable.push(1);
 	}
-	if (document.getElementById("polskie").checked ){
+	if (document.getElementById("polskie_js").checked ){
 		checked +=1;
 		mainTable.push(2);
 	}
-	if (document.getElementById("liczby").checked ){
+	if (document.getElementById("liczby_js").checked ){
 		checked +=1;
 		mainTable.push(3);
 	}
-	if (document.getElementById("znaki").checked ){
+	if (document.getElementById("znaki_js").checked ){
 		checked +=1;
 		mainTable.push(4);
 	} 
 	if (checked>0 && checked > numberOfSigns) {
 		return alert("Długość tekstu przy zaznaczonych opcjach musi być dłuższa");
 	} else if(checked==0){
-		return alert("Zaznacz przynajmniej jedną opcję");;
+		return alert("Zaznacz przynajmniej jedną opcję");
 	} 
 }
 
@@ -174,7 +176,7 @@ function getSignNumber(word) {
 	
 	var signsNumber = word.length;
 	console.log(signsNumber);
-	document.getElementById("ilosc").textContent = signsNumber;
+	document.getElementById("ilosc_js").textContent = signsNumber;
 	console.log(word);
 
 }

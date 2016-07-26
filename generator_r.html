@@ -9,23 +9,23 @@
 	 
 	 <body> 
 		
-		<h1> Generator tekstu </h1>
+		<h1> Generator znaków </h1>
 		
 		<form id="form1">
-			<label id="label1"> Wpisz długość tekstu który chcesz wygenerować <input type="text" min="3"  maxlength="5" id="textlength" name="liczba" value=""> </label>
+			<label id="label1"> Wpisz ilość znaków którą chcesz wygenerować <input type="text" min="3"  maxlength="5" id="textlength_js" name="liczba" value=""> </label>
 			
 			
 			<p>Uwzględnij: </p>
 			<p>
 
-				<input  id="letter" type="checkbox" name="sign" value="litery"><label class="inline" for="polskie">Duże i małe litery</label> <br>
-				<input  id="space" type="checkbox" name="sign" value="spacje"><label class="inline" for="spacje">spacje</label> <br>
-				<input  id="polskie" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polskie">polskie znaki</label> <br>
-				<input id="liczby" type="checkbox" name="sign" value="liczby" ><label class="inline" for="liczby">cyfry</label> <br>
-				<input id="znaki" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="znaki">znaki specjalne:  !@#$%^&*()</label> 
+				<input  id="letter_js" type="checkbox" name="sign" value="litery"><label class="inline" for="polskie">Duże i małe litery</label> <br>
+				<input  id="space_js" type="checkbox" name="sign" value="spacje"><label class="inline" for="spacje">spacje</label> <br>
+				<input  id="polskie_js" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polskie">polskie znaki</label> <br>
+				<input id="liczby_js" type="checkbox" name="sign" value="liczby" ><label class="inline" for="liczby">cyfry</label> <br>
+				<input id="znaki_js" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="znaki">znaki specjalne:  !@#$%^&*()</label> 
 			</p>
 			
-			<textarea  id="generatedText" name="text" value=""  ></textarea>
+			<textarea  id="generatedText_js" name="text" value=""  ></textarea>
 			
 			<input type="button" value="generuj tekst" onclick = "generateText()">
 		</form>
@@ -34,10 +34,10 @@
 		
 		<p> Wklej tekst aby policzyć ilość znaków </p>
 		<form id="form2">
-			<textarea  id="firstInput" name="wyraz"  value=" "></textarea>
+			<textarea  id="firstInput_js" name="wyraz"  value=" "></textarea>
 			<input type="button" value="ilość znaków" onclick = "getSignNumber(wyraz.value)">
 		</form>
-		<p> Ilość znaków wynosi <span id="ilosc"></span></p>
+		<p> Ilość znaków wynosi <span id="ilosc_js"></span></p>
 		
 		
 	</body>
