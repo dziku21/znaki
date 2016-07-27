@@ -10,10 +10,13 @@ var counterTable = 0;
 var checked = 0; 
 var numberOfSigns;
 
+
+
+
 function generateText() {	
 	displayAlert();
  	if (checked == 0) {
- 		return null;
+ 		return ;
  	}
     var answer = "";
 	//przypadek gdy liczba zaznaczonych checkboxów == liczba znaków do wygenerowania
@@ -47,7 +50,7 @@ function generateText() {
     		answer2 = shuffleArray(answer);// miszanie tablicy
     		answer = generateString(answer2); 
 	}
-	document.getElementById("generatedText_js").value = answer;
+	$("#generatedText_js").val(answer);
 	checked = 0;
 	mainTable  = [];
 }
@@ -153,7 +156,15 @@ function displayAlert() {
 function getSignNumber(word) {
 	
 	var signsNumber = word.length;
-	console.log(signsNumber);
 	document.getElementById("ilosc_js").textContent = signsNumber;
-	console.log(word);
 }
+
+var buttonToCopy = document.getElementById("copyText");
+buttonToCopy.addEventListener('click', function() {
+  var copyInput = document.querySelector("#generatedText_js");
+  copyInput.select();
+  var successful = document.execCommand('copy');
+ });  
+
+ var buttonText =document.getElementById("buttonText");
+ buttonText.addEventListener('click', generateText); 

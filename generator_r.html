@@ -3,8 +3,10 @@
 	<head>
 		<title> generator znaków </title>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css"/>
-		<script src = "js/js_r.js"> </script>
+		
 	 </head>
 	 
 	 <body> 
@@ -26,8 +28,8 @@
 			</p>
 			
 			<textarea  id="generatedText_js" name="text" value=""  ></textarea>
-			
-			<input type="button" value="generuj tekst" onclick = "generateText()">
+			<input type=button  value="Kopiuj do schowka" id="copyText"> 
+			<input type=button  value="generuj tekst" id="buttonText" >
 		</form>
 		
 		<hr>
@@ -35,10 +37,10 @@
 		<p> Wklej tekst aby policzyć ilość znaków </p>
 		<form id="form2">
 			<textarea  id="firstInput_js" name="wyraz"  value=" "></textarea>
-			<input type="button" value="ilość znaków" onclick = "getSignNumber(wyraz.value)">
+			<input type="button" value="ilość znaków" onclick="getSignNumber(wyraz.value)">
 		</form>
 		<p> Ilość znaków wynosi <span id="ilosc_js"></span></p>
-		
+		<script src = "js/js_r.js"></script>
 		
 	</body>
 </html>
