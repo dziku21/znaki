@@ -4,43 +4,34 @@
 		<title> generator znaków </title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/jquery-3.1.0.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css"/>
 		
 	 </head>
 	 
 	 <body> 
-		
-		<h1> Generator znaków </h1>
-		
-		<form id="form1">
-			<label id="label1"> Wpisz ilość znaków którą chcesz wygenerować <input type="text" min="3"  maxlength="5" id="textlength_js" name="liczba" value=""> </label>
+		<div id="container">
+			<div id="main" class="color">
+				<h1> Generator znaków </h1>
+				<label id="label1"> Ilość znaków  <input type="number" min="1" max="12000"  maxlength="5" id="textlength_js" class="border-brown" name="liczba" value="10"> </label>
+				<textarea  id="generatedText_js" class="" name="text" value=""  ></textarea>
+				
+				<div id="buttonbox">
+					<input type=button  value="generuj tekst" id="buttonText" class="button boxleft" >
+					<input type=button  value="Kopiuj do schowka" id="copyText" class="button boxleft"> 
+				</div>
 			
-			
-			<p>Uwzględnij: </p>
-			<p>
+				<div class="clear" >
+					<input  id="letter_js" type="checkbox" name="sign" value="litery" checked><label class="inline" for="letter_js" >Duże i małe litery</label> <br>
+					<input  id="space_js" type="checkbox" name="sign" value="spacje"><label class="inline" for="space_js">spacje</label> <br>
+					<input  id="polish_js" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polish_js">polskie znaki</label> <br>
+					<input id="numbers_js" type="checkbox" name="sign" value="liczby" ><label class="inline" for="numbers_js">cyfry</label> <br>
+					<input id="signs_js" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="signs_js">znaki specjalne:  !@#$%^&*()</label>
+				</div>
 
-				<input  id="letter_js" type="checkbox" name="sign" value="litery"><label class="inline" for="letter_js">Duże i małe litery</label> <br>
-				<input  id="space_js" type="checkbox" name="sign" value="spacje"><label class="inline" for="space_js">spacje</label> <br>
-				<input  id="polish_js" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polish_js">polskie znaki</label> <br>
-				<input id="numbers_js" type="checkbox" name="sign" value="liczby" ><label class="inline" for="numbers_js">cyfry</label> <br>
-				<input id="signs_js" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="signs_js">znaki specjalne:  !@#$%^&*()</label> 
-			</p>
-			
-			<textarea  id="generatedText_js" name="text" value=""  ></textarea>
-			<input type=button  value="Kopiuj do schowka" id="copyText"> 
-			<input type=button  value="generuj tekst" id="buttonText" >
-		</form>
-		
-		<hr>
-		
-		<p> Wklej tekst aby policzyć ilość znaków </p>
-		<form id="form2">
-			<textarea  id="firstInput_js" name="wyraz"  value=" "></textarea>
-			<input type="button" value="ilość znaków" onclick="getSignNumber(wyraz.value)">
-		</form>
-		<p> Ilość znaków wynosi <span id="ilosc_js"></span></p>
-		<script src = "js/js_r.js"></script>
-		
+				
+			</div>
+		 </div>	
+		 <script src = "js/js_r.js"></script>
 	</body>
 </html>

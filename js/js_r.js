@@ -40,7 +40,6 @@ function generateText() {
     			index = Math.floor(Math.random() * NumbersForTableWithSigns.length);
     			console.log(NumbersForTableWithSigns);
     			if (NumbersForTableWithSigns[index] > 0) {
-    				
     				answer += generateSign(mainTable[index]);
     				NumbersForTableWithSigns[index] -=1;
     				numberOfSigns-- ;
@@ -150,13 +149,9 @@ function displayAlert() {
 		return alert("Ilość znaków powinna być większa");
 	} else if(checked==0){
 		return alert("Zaznacz przynajmniej jedną opcję");
-	} 
-}
+	}  
 
-function getSignNumber(word) {
-	
-	var signsNumber = word.length;
-	document.getElementById("ilosc_js").textContent = signsNumber;
+
 }
 
 var buttonToCopy = document.getElementById("copyText");

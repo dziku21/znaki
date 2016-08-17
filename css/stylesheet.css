@@ -1,31 +1,46 @@
 
+* {
+	box-sizing: border-box;
+}
+
+#container {
+    background-color: #770022;
+}
+
+#main  {
+	
+    padding: 20px;
+	margin: 10px;
+}
+
+.color {
+    background-color: #CCCCCC;
+}
+
+.clear {
+	clear: both;
+}
 
 label {
 	display: block;
 	margin : 5px;
 	font-size: 17px;
-	
 }
 
 p {
 	margin-left :5px;
-	
-}
-
-textarea {
- margin-top:10px
 }
 	
-body {
-    background-color: rgba(184, 43, 0, 1);
-}
 
 textarea {
-	width:500px;
+	width:400px;
 	height :100px;
 	margin-left: 5px;
 	margin-bottom: 5px;
-	margin-top:20px
+	margin-top:10px;
+	display : block;
+	clear: both;
+	float: left;
 }
 
 #textlength {
@@ -40,5 +55,47 @@ textarea {
 
 .inline {
 	display: inline;
+}
+
+
+.boxleft {
+	float: left;
+}
+
+#boxright {
+	width: 240px;
+	height: 170px;
+	float: left;
+}
+
+#buttonbox{
+	float: left;
+	margin: 10px;
+	margin-right: 45px;
+	width: 320px;
+	height:50px;
+}
+
+.right {
+	float: right;
+}
+
+.button {
+	width: 130px;
+	height: 30px;
+	margin-bottom: 20px;
+	border: solid 1px #770022;
+	border-radius: 3px;
+	margin-right: 10px;
+	
+}
+
+#signs {
+	visibility: hidden;
+}
+
+.border-brown{
+    border: solid 1px #770022;
+	border-radius: 3px;
 }
 
