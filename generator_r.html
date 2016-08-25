@@ -13,8 +13,8 @@
 		<div id="container">
 			<div id="main" class="color">
 				<h1> Generator znaków </h1>
-				<label id="label1"> Ilość znaków  <input type="number" min="1" max="12000"  maxlength="5" id="textlength_js" class="border-brown" name="liczba" value="10"> </label>
-				<textarea  id="generatedText_js" class="" name="text" value=""  ></textarea>
+				<label id="label1" class="boxleft"> Ilość znaków  <input type="number" min="1" max="12000"  maxlength="5" id="textlength_js" class="border-brown" name="liczba" value="10"><span id="error2""></span> </label>
+				<textarea  id="generatedText_js" class="" name="text" value="" readonly  ></textarea>
 				
 				<div id="buttonbox">
 					<input type=button  value="generuj tekst" id="buttonText" class="button boxleft" >
@@ -22,6 +22,7 @@
 				</div>
 			
 				<div class="clear" >
+					<div id="error"> </div>
 					<input  id="letter_js" type="checkbox" name="sign" value="litery" checked><label class="inline" for="letter_js" >Duże i małe litery</label> <br>
 					<input  id="space_js" type="checkbox" name="sign" value="spacje"><label class="inline" for="space_js">spacje</label> <br>
 					<input  id="polish_js" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polish_js">polskie znaki</label> <br>

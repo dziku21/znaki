@@ -145,11 +145,23 @@ function displayAlert() {
 		checked +=1;
 		mainTable.push(4);
 	} 
-	if (checked>0 && checked > numberOfSigns) {
-		return alert("Ilość znaków powinna być większa");
-	} else if(checked==0){
-		return alert("Zaznacz przynajmniej jedną opcję");
-	}  
+	var message = document.getElementById("error");
+	var message1 = document.getElementById("error2");
+
+	if(checked==0){
+		message.textContent = "Zaznacz przynajmniej jedną opcję";
+		message.setAttribute("class", "error");
+	} else {
+		message.textContent="";
+	}
+
+
+	if ((checked>0 && checked > numberOfSigns) || (numberOfSigns<0)) {
+		message1.textContent = "Ilość znaków powinna być większa";
+		message1.setAttribute("class", "error");
+	} else {
+		message1.textContent="";
+	}
 
 
 }

@@ -99,3 +99,15 @@ textarea {
 	border-radius: 3px;
 }
 
+#error {
+	height :20px;
+}
+
+.error{
+    color: red;
+    font-size : 11px;
+}
+
+span {
+	margin-left: 10px;
+}
