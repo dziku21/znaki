@@ -1,23 +1,26 @@
-var letter = "qwertyuioplkjhgfdsamnbvcxzZXCVBNMLKJHGFDSAPOIUYTREWQ"; 
+var smallLeter ="qwertyuioplkjhgfdsamnbvcxz";
+var bigLetter = "ZXCVBNMLKJHGFDSAPOIUYTREWQ";     
 var space = " ";
 var polish = "ęóąśłżźćń";
 var digits = "0123456789";
 var special = "!@#$%^&*()";
-var tableWithSigns = [ letter, space, polish, digits, special ] ; 
-var procentTable =   [0.6, 0.1, 0.1, 0.1, 0.1]; // dla każdego checboxa przypisana jest procentowa wartość znaków w ciągu. 
+var tableWithSigns = [ smallLeter, bigLetter, space, polish, digits, special ] ; 
+var procentTable =   [0.4, 0.2, 0.1, 0.1, 0.1, 0.1]; // dla każdego checboxa przypisana jest procentowa wartość znaków w ciągu. 
 var mainTable = [];  // tablica z indeksami zaznaczonych checboxów.  
 var counterTable = 0;
 var checked = 0; 
 var numberOfSigns;
-
+var run;
 
 
 
 function generateText() {	
+	//run = true;
 	displayAlert();
- 	if (checked == 0) {
+ 	if (checked == 0  ) {
  		return ;
  	}
+	
     var answer = "";
 	//przypadek gdy liczba zaznaczonych checkboxów == liczba znaków do wygenerowania
     if (mainTable.length == numberOfSigns) {
@@ -108,14 +111,13 @@ function generateNumbersForTableWithSigns(table, totalnumbers) {
 				} 
 			}
 		}
-		console.log("suma po dodatkowym dodawaniu "+ sum);
-		console.log("tablica ze znakami dla poszczególnych grup po obróbce  " + tableWithNumbersOfSign);
+		//console.log("suma po dodatkowym dodawaniu "+ sum);
+		//console.log("tablica ze znakami dla poszczególnych grup po obróbce  " + tableWithNumbersOfSign);
 		return tableWithNumbersOfSign;
 }
 
 function generateSign(index) {
 	var signs = tableWithSigns[index];
-	console.log(signs);
 	var index = Math.floor(Math.random() * signs.length);
 	return signs[index];
 }
@@ -125,26 +127,33 @@ function displayAlert() {
 	// Sprawdza, które checboxy zostały zazanoczne i które dodać do głównej tablicy.
 	numberOfSigns = document.getElementById("textlength_js").value;
 
-	if (document.getElementById("letter_js").checked ){
+	if (document.getElementById("smallLetter_js").checked ){
 		checked +=1;
 		mainTable.push(0);
 	}
-	if (document.getElementById("space_js").checked ){
+	if (document.getElementById("bigLetter_js").checked ){
 		checked +=1;
 		mainTable.push(1);
 	}
-	if (document.getElementById("polish_js").checked ){
+	if (document.getElementById("space_js").checked ){
 		checked +=1;
 		mainTable.push(2);
 	}
-	if (document.getElementById("numbers_js").checked ){
+	if (document.getElementById("polish_js").checked ){
 		checked +=1;
 		mainTable.push(3);
 	}
-	if (document.getElementById("signs_js").checked ){
+	if (document.getElementById("numbers_js").checked ){
 		checked +=1;
 		mainTable.push(4);
+	}
+	if (document.getElementById("signs_js").checked ){
+		checked +=1;
+		mainTable.push(5);
 	} 
+
+	
+
 	var message = document.getElementById("error");
 	var message1 = document.getElementById("error2");
 
@@ -156,14 +165,33 @@ function displayAlert() {
 	}
 
 
-	if ((checked>0 && checked > numberOfSigns) || (numberOfSigns<0)) {
+	if (!isInt(numberOfSigns) || numberOfSigns<1) {
+		message1.textContent = "Wprowadź liczbę całkowitą dodatnią";
+		message1.setAttribute("class", "error");
+		checked = 0;
+		mainTable =[];
+	} else if (numberOfSigns > 12000) {
+		message1.textContent = "Maksymalna liczba znaków to 12000";
+		message1.setAttribute("class", "error");
+		checked = 0;
+		mainTable =[];
+	} else if ((checked>0 && checked > numberOfSigns) || (numberOfSigns<0)) {
 		message1.textContent = "Ilość znaków powinna być większa";
 		message1.setAttribute("class", "error");
+		checked = 0;
+		mainTable =[];
 	} else {
 		message1.textContent="";
 	}
 
 
+}
+
+
+function isInt(value) {
+  return !isNaN(value) && 
+         parseInt(Number(value)) == value && 
+         !isNaN(parseInt(value, 10) && value > 0);
 }
 
 var buttonToCopy = document.getElementById("copyText");
