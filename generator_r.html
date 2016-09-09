@@ -5,6 +5,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="js/jquery-3.1.0.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+    	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/stylesheet.css"/>
 		
 	 </head>
@@ -13,23 +15,35 @@
 		<div id="container">
 			<div id="main" class="color">
 				<h1> Generator znaków </h1>
-				<label id="label1" class="boxleft"> Ilość znaków  <input type="number" min="1" max="12000"  maxlength="5" id="textlength_js" class="border-brown" name="liczba" value="10"><span id="error2""></span> </label>
-				<textarea  id="generatedText_js" class="" name="text" value="" readonly  ></textarea>
-				
-				<div id="buttonbox">
-					<input type=button  value="generuj tekst" id="buttonText" class="button boxleft" >
-					<input type=button  value="Kopiuj do schowka" id="copyText" class="button boxleft"> 
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 ">
+						<label id="label1" class="boxleft"> Ilość znaków  <input type="number" min="1" max="12000"  maxlength="5"
+																id="textlength_js" class="border-brown" name="liczba" value="10">
+						<span id="error2""></span> </label>
+					</div>
+				</div>
+				<div  class="row">
+					<div class="col-xs-12 col-sm-5">
+						<textarea  id="generatedText_js" class="form-control" name="text" value="" readonly rows="4" ></textarea>
+					</div>
+			
+					<div id="buttonbox" class="col-xs-12 col-sm-4">
+						<input type=button  value="generuj tekst" id="buttonText" class="button boxleft" >
+						<input type=button  value="Kopiuj do schowka" id="copyText" class="button boxleft"> 
+					</div>
 				</div>
 			
-				<div class="clear" >
-					<div id="error"> </div>
-						<input  id="smallLetter_js" type="checkbox" name="sign" value="litery" checked><label class="inline" for="smallLetter_js" >małe  litery</label> <br>
+				<div class="row" >
+				  <div id="error"> </div>
+					<div class="col-xs-12 col-sm-3 ">
+						<input  id="smallLetter_js"  type="checkbox" name="sign" value="litery" checked><label class="inline " for="smallLetter_js" >małe  litery</label> <br>
 						<input  id="bigLetter_js" type="checkbox" name="sign" value="litery" ><label class="inline" for="bigLetter_js" >duże  litery</label> <br>
 						<input  id="space_js" type="checkbox" name="sign" value="spacje"><label class="inline" for="space_js">spacje</label> <br>
 						<input  id="polish_js" type="checkbox" name="sign" value="polskie znaki"><label class="inline" for="polish_js">polskie znaki</label> <br>
 						<input id="numbers_js" type="checkbox" name="sign" value="liczby" ><label class="inline" for="numbers_js">cyfry</label> <br>
 						<input id="signs_js" type="checkbox" name="sign" value="znaki specjalne" ><label class="inline" for="signs_js">znaki specjalne:  !@#$%^&*()</label>
-				</div>
+                    </div>
+				  </div>
 
 				
 			</div>

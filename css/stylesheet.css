@@ -33,14 +33,11 @@ p {
 	
 
 textarea {
-	width:400px;
-	height :100px;
+
+
 	margin-left: 5px;
 	margin-bottom: 5px;
 	margin-top:10px;
-	display : block;
-	clear: both;
-	float: left;
 }
 
 #textlength {
